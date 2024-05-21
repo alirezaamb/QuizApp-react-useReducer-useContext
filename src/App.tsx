@@ -6,10 +6,10 @@ import Question from './components/question/Question';
 import Result from './components/result/Result';
 
 function App() {
-  const { state } = useContext(QuizContext);
+  const { state }: { state: string } = useContext(QuizContext);
 
   return (
-    <div className="">
+    <div className=" rounded bg-gray-400 fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-3/4 w-1/2 h-1/2">
       {state.status === 'loading' && <Loading />}
       {state.status === 'start' && <Setup />}
       {state.status === 'ready' && <Question />}

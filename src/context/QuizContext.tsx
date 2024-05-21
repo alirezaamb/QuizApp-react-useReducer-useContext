@@ -7,7 +7,14 @@ const initialState = {
   points: 0,
 };
 
-const reducer = (state, action) => {
+const reducer = (
+  state: {
+    questions: { [x: string]: { correct_answer: string } };
+    index: number;
+    points: number;
+  },
+  action: { type: any; payload: any }
+) => {
   switch (action.type) {
     case 'start': {
       return { ...state, status: 'start' };
@@ -34,7 +41,15 @@ const reducer = (state, action) => {
   }
 };
 
-export const QuizContext = createContext({});
+export const QuizContext = createContext({
+  state: {
+    questions: [],
+    status: 'loading',
+    index: 0,
+    points: 0,
+  },
+  dispatch: () => {},
+});
 
 export const QuizProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
