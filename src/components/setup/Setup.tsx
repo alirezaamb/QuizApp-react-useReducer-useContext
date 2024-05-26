@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useContext, useState } from 'react';
 import { QuizContext } from '../../context/QuizContext';
 import { getQuestions } from '../../api/get';
@@ -24,7 +23,9 @@ const Setup = () => {
   }
   return (
     <div className="flex flex-col justify-center items-center p-5 relative">
-      <h2 className=" font-extrabold text-xl">Setup Quiz</h2>
+      <h2 className=" font-extrabold text-xl pb-3 border-b-2 text-yellow-500">
+        Setup Quiz
+      </h2>
       <form onSubmit={submitHandler} className="w-full flex flex-col">
         <div>
           <label>
